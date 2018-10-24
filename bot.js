@@ -2,7 +2,7 @@ client.on('message', message => {
 
               if(!message.channel.guild) return;
 
-    var prefix = "+";
+    var prefix = +Bc
 
     if(message.content.startsWith('+bc')) {
 
