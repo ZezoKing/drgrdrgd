@@ -1,31 +1,77 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-client.on('ready', () => {
-  client.user.setGame(`The Dark , Bc`,'https://www.twitch.tv/v5bz');
-  console.log('---------------');
-  console.log(' Bot Is Online')
-  console.log('---------------')
-});
 client.on('message', message => {
-   let embed = new Discord.RichEmbed()
 
-    let args = message.content.split(' ').slice(1).join(' ');
-     if(!message.channel.guild) return;
-if(message.content.split(' ')[0] == '*bc') {
-         message.react("✔️")
-          let embed = new Discord.RichEmbed()
-    .setColor("#FF00FF")
-    .setThumbnail(message.author.avatarURL)   
-                                      .addField('تم الارسال بواسطة :', "<@" + message.author.id + ">")
-                 message.channel.sendEmbed(embed);
-        message.guild.members.forEach(m => {
-            var bc = new Discord.RichEmbed()
-.addField('**● Sender  :**', `*** → ${message.author.username}#${message.author.discriminator}***`)
-            .addField('***● Server  :***', `*** → ${message.guild.name}***`)               
-    .setColor('#ff0000')
-                 .addField('ّ', args)
-            m.send(``,{embed: bc});
-        });
+              if(!message.channel.guild) return;
+
+    var prefix = "+";
+
+    if(message.content.startsWith('+bc')) {
+
+    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+
+  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+
+    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+
+
+    let request = `Requested By ${message.author.username}`;
+
+    if (!args) return message.reply('**اكتب شي لي ارسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+
+    msg.react('✅')
+
+    .then(() => msg.react('❌'))
+
+    .then(() =>msg.react('✅'))
+
+    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+
+    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+
+       let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
+
+    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
+
+    reaction1.on("collect", r => {
+
+    message.channel.send(`☑ | Done ... The Broadcast Message Has Been Sent For ${message.guild.members.size} Members`).then(m => m.delete(5000));
+
+    message.guild.members.forEach(m => {
+
+    var bc = new
+
+       Discord.RichEmbed()
+
+       .setColor('RANDOM')
+
+         .setTitle('لي دخول السيرفر اضغط هنا')
+       
+       .setURL('https://discord.gg/y2wabFV')
+
+       .addField('Server', message.guild.name)
+
+       .addField('Sender', message.author.username)
+
+       .addField('Message', args)
+
+    m.send({ embed: bc })
+
+    msg.delete();
+
+    })
+
+    })
+
+    reaction2.on("collect", r => {
+
+    message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
+
+    msg.delete();
+
+    })
+
+    })
+
     }
-})
-client.login("NTA0NjA5OTAxMzQwMDAwMjU3.DrHr4w.VJRnA_0ahn_43Qj6E7rkFkrbnbY");
+
+    });  
+  
