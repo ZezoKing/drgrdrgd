@@ -41,17 +41,6 @@ client.on('message', message => {
          message.channel.send({embed:embed});
                         }
                     }); 
-
-
-
-
-
-
-
-
-
-
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require('moment');
