@@ -1,31 +1,4 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` HelklR Server  `,"http://twitch.tv/S-F")
-  console.log('')
-  console.log('')
-  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
-  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('╚[════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════]╗')
-  console.log(' Bot Is Online ')
-  console.log('╚[════════════]╝')
-  console.log('')
-  console.log('')
-});
 client.on('message', message => {
                                 if(!message.channel.guild) return;
                         if (message.content.startsWith('ping')) {
@@ -483,7 +456,7 @@ message.channel.send({embed:embed});
         });
     } else if(message.content.startsWith(adminprefix + "watch")) {
 				        if(message.author.id !== myID) return;
-            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+            if(!args) return message.reply('The Dark.');
         client.user.setActivity(args, {type:'WATCHING'});
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
