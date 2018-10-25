@@ -526,7 +526,6 @@ message.channel.send({embed:embed});
         console.log(`Restart Done..`);
         setTimeout(() => {
             client.destroy();
-client.login(process.env.BOT_TOKEN);
         },3000);
     }
 });
