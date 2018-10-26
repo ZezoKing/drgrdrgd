@@ -58,13 +58,6 @@ client.on("guildMemberAdd", msg => {
 msg.user.sendMessage(AlphaE);
 });
 
- const prefix = "!"
-client.on("message", message => {
-
-  if (message.content.startsWith(prefix + "avatar")) {
-    message.channel.send(message.author.avatarURL);
-  };
- })
 
 
 
