@@ -46,7 +46,7 @@ client.on('message', message => {
 client.on("guildMemberAdd", msg => {
   var AlphaE = new Discord.RichEmbed()
 .setColor("RANDOM")
-.setAuthor(msg.user.username, msg.user.avatarURL)
+.setAuthor(msg.user.username, msg.user.avatarURL) 
 .setThumbnail(msg.user.avatarURL)
 .setTitle(`
 مرحبا بك في السيرفر
@@ -58,22 +58,6 @@ client.on("guildMemberAdd", msg => {
 msg.user.sendMessage(AlphaE);
 });
 
-client.on('message', msg => {
- if(msg.content === "-bot") {
-let embed24 = new Discord.RichEmbed()   
-   .setThumbnail(client.user.avatarURL)
-   .setColor("RANDOM")  
-   .setTitle(`🤖**Information about**🤖 || ${client.user.tag}`, true)
-   .addField("📜**Name + Tag**📜", client.user.tag, true)
-   .addField("🤖**Bot Join Servers**🤖", client.guilds.size, true)
-   .addField("👥**Sender**👥", msg.author.tag, true)
-   .addField("🤖:id: *Bot ID** :id:🤖 ", client.user.id, true)
-   .addField("📆**Bot Created At**📆", `${moment(client.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(client.user.createdAt).fromNow()}\``, true)
-   .addField("🤖**User**🤖", client.users.size, true)
-   .setFooter(`${msg.author.tag}`, `${msg.author.avatarURL}`, true)
-msg.channel.sendEmbed(embed24)
-}
- });
 
 
 
