@@ -43,20 +43,7 @@ client.on('message', message => {
                         }
                     }); 
 
-client.on("guildMemberAdd", msg => {
-  var AlphaE = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setAuthor(msg.user.username, msg.user.avatarURL) 
-.setThumbnail(msg.user.avatarURL)
-.setTitle(`
-مرحبا بك في السيرفر
-نتمى ان تدخل الي السيرفر
-`)
-.addField("هذي الرساله خاصه بك يا حبيبي", `${msg.user.tag}`, true)
-.addField(`هذا الرابط خاصه بك`,`Link`, true)
- .setFooter(msg.user.tag, msg.user.avatarURL, true)
-msg.user.sendMessage(AlphaE);
-});
+
 
 
 
