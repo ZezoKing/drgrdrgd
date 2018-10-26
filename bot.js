@@ -32,3 +32,12 @@ if(args[0] === ${prefix}bc) {
   });
 }
 });
+
+
+
+
+
+
+
+
+client.login(process.env.BOT_TOKEN);
