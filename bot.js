@@ -60,7 +60,7 @@ msg.user.sendMessage(AlphaE);
 
 client.on("ready", () => {
   function lol() {
-    client.guilds.get('id server').roles.find("name", "lol").setColor("RANDOM");
+    client.guilds.get('499197282953068544').roles.find("name", "lol").setColor("RANDOM");
   };
   setInterval(lol, 10000);
 });
