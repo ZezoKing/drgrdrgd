@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+const client = new Discord.Client();
 client.on('message',async message => {
 if(message.author.bot || message.channel.type === 'dm') return;
 let args = message.content.split(' ');
