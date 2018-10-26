@@ -1,14 +1,14 @@
 {
-  "name": "Heroku",
+  "name": "bytetech",
   "version": "2.1.0",
-  "description": "",
+  "description": "-- AWESOMENESS --",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
   },
   "dependencies": {
     "ascii-data-table": "^2.1.1",
-    "canvas": "^1.6.11",
+    "canvas": "^1.6.10",
     "dateformat": "^3.0.3",
     "discord.js": "^11.3.2",
     "express": "^4.16.3",
