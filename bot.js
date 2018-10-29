@@ -33,7 +33,7 @@ client.user.setGame(` اكتب اي شي هنا  `,"http://twitch.tv/S-F")
 
 client.on('message', message => {
                                 if(!message.channel.guild) return;
-                        if (message.content.startsWith('ping')) {
+                        if (message.content.startsWith('+ping')) {
                             if(!message.channel.guild) return;
                             var msg = `${Date.now() - message.createdTimestamp}`
                             var api = `${Math.round(client.ping)}`
@@ -49,7 +49,7 @@ client.on('message', message => {
 
 client.on('message', message => {
               if(!message.channel.guild) return;
-    if(message.content.startsWith('^bc')) {
+    if(message.content.startsWith('+bc')) {
     if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
