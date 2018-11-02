@@ -1,6 +1,6 @@
 client.on('guildMemberAdd', Sal => { 
     var embed = new Discord.RichEmbed()
-    .setTitle('Welcome')
+    .setTitle('Zezo')
     .setDescription('ارحب نورت Welcome To Evil ')
     .setColor('RANDOM')
     .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
