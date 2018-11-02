@@ -1,11 +1,8 @@
 const client = new Discord.Client();
-
            client.on('message', message => {
                     var prefix = "#";
-
            if (message.content.startsWith(prefix + "id")) {
                      if(!message.channel.guild) return message.reply(`هذا الأمر فقط ل السيرفرات :x:`);
-
                 message.guild.fetchInvites().then(invs => {
       let member = client.guilds.get(message.guild.id).members.get(message.author.id);
       let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
