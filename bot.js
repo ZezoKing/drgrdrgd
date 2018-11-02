@@ -1,3 +1,10 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const fs = require("fs");
+var Canvas = require('canvas');
+var jimp = require('jimp');
+const moment = require('moment');
+var prefix = "+";
 client.on('message', message => {
     if (message.content === '.user') {
         if(!message.channel.guild) return message.reply(`❌ هذا الأمر فقط ل السيرفرات`);
