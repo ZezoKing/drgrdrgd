@@ -79,7 +79,7 @@ client.on('message', message => {
 if (message.content === '*help') {
          let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)    
-      .addField("** مبرمج البوت :wrench: **","**@!      i1sυнαɪв ☕ᴶᴮᴿ#4272  , @! ϻ ~ ✘_♥ ツ#2275  **")
+      .addField("** مبرمج البوت :wrench: **","**@!      @!  , AhMaD#4900   , @!  , Zezo#7765   **")
 .setColor('RANDOM')
   message.author.sendEmbed(embed);
     }
@@ -324,7 +324,5 @@ client.on('message', message => {
   console.log('[id] Send By: ' + message.author.username)
     }
 });
-
-
 
 client.login(process.env.BOT_TOKEN);
