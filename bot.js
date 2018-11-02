@@ -38,12 +38,6 @@ var mentionned = message.mentions.members.first();
 .addField(': عدد الدعوات', inviteCount,false)
 .setFooter("DEV_Zezo")  
     message.channel.sendEmbed(id);
-})
-}
-    
-
-         
-     });
 hero.on('message',async message => {
   let args = message.content.split(' ');
   let banUser = message.mentions.users.first();
