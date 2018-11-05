@@ -1,31 +1,81 @@
 client.on('message', message => {
-var prefix = "%";
-
-    if (message.author.id === client.user.id) return;
-    if (message.guild) {
-   let embed = new Discord.RichEmbed()
-    let args = message.content.split(' ').slice(1).join(' ');
-if(message.content.split(' ')[0] == prefix + 'bc') {
-    if (!args[1]) {
-message.channel.send("**%bc <message>**");
-return;
-}
-        message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            var bc = new Discord.RichEmbed()
-            .addField('» السيرفر :', `${message.guild.name}`)
-            .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
-            .addField(' » الرسالة : ', args)
-            .setColor('#ff0000')
-            // m.send(`[${m}]`);
-            m.send(`${m}`,{embed: bc});
-        });
+var prefix = "#";
+    if(message.content.startsWith(prefix + 'new')) {
+        let args = message.content.split(' ').slice(1).join(' ');
+        let support = message.guild.roles.find("name","Support Team");
+        let ticketsStation = message.guild.channels.find("name", "TICKETS");
+        if(!args) {
+            return message.channel.send('Please type a subject for the ticket.');
+        };
+                if(!support) {
+                    return message.channel.send('**Please make sure that `Support Team` role exists and it\'s not duplicated.**');
+                };
+            if(!ticketsStation) {
+                message.guild.createChannel("TICKETS", "category");
+            };
+                message.guild.createChannel(`ticket-${message.author.username}`, "text").then(ticket => {
+                    message.delete()
+                        message.channel.send(`Your ticket has been created. [ ${ticket} ]`);
+                    ticket.setParent(ticketsStation);
+                    ticketsStation.setPosition(1);
+                        ticket.overwritePermissions(message.guild.id, {
+                            SEND_MESSAGES: false,
+                            READ_MESSAGES: false
+                        });
+                            ticket.overwritePermissions(support.id, {
+                                SEND_MESSAGES: true,
+                                READ_MESSAGES: true
+                            });
+                                ticket.overwritePermissions(message.author.id, {
+                                    SEND_MESSAGES: true,
+                                    READ_MESSAGES: true
+                                });
+                    let embed = new Discord.RichEmbed()
+                                .setTitle('**New Ticket.**')
+                                .setColor("RANDOM")
+                                .setThumbnail(`${message.author.avatarURL}`)
+                                .addField('Subject', args)
+                                .addField('Author', message.author)
+                                .addField('Channel', `<#${message.channel.id}>`);
+ 
+                                ticket.sendEmbed(embed);
+                }) .catch();
     }
-    } else {
-        return;
+    if(message.content.startsWith(prefix + 'close')) {
+            if(!message.member.hasPermission("ADMINISTRATOR")) return;
+        if(!message.channel.name.startsWith("ticket")) {
+            return;
+        };  
+                let embed = new Discord.RichEmbed()
+                    .setAuthor("Do you really want to close this ticket? Repeat the command to make sure. You have 20 seconds.")
+                    .setColor("RANDOM");
+                    message.channel.sendEmbed(embed) .then(codes => {
+ 
+                   
+                        const filter = msg => msg.content.startsWith(prefix + 'close');
+                        message.channel.awaitMessages(response => response.content === prefix + 'close', {
+                            max: 1,
+                            time: 20000,
+                            errors: ['time']
+                        })
+                        .then((collect) => {
+                            message.channel.delete();
+                        }) .catch(() => {
+                            codes.delete()
+                                .then(message.channel.send('**Operation has been cancelled.**')) .then((c) => {
+                                    c.delete(4000);
+                                })
+                                   
+                           
+                        })
+ 
+ 
+                    })
+ 
+ 
+           
     }
 });
-
 
 
 
