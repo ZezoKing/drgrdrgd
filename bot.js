@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
 client.on('ready', async() => {
 var server = "509037653040300053"; 
 var channel = "509037699831955456";
