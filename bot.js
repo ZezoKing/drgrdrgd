@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.on('ready', async() => {
-var server = "509037653040300053"; 
-var channel = "509037699831955456";
+var server = "594651464836710400"; 
+var channel = "594651823873458187";
     setInterval(()=>{
     client.guilds.get(server).channels.get(channel).send('** London Server   **')
     },305);
