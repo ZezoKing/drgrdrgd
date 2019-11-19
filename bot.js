@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.on('ready', async() => {
-var server = "642711609768280075"; 
-var channel = "644073599262654464";
+var server = "619139460092788746"; 
+var channel = "646390015563137025";
     setInterval(()=>{
     client.guilds.get(server).channels.get(channel).send('** سلوى اكس برو   **')
     },305);
