@@ -1,3 +1,6 @@
+const Discord = require("discord.js")
+const bot = new Discord.Client({})
+let client = bot;
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
