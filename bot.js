@@ -417,3 +417,7 @@ message.guild.members.filter(m => m.presence.status === 'online').forEach(m => {
      })
  })
     }});
+
+client.login(process.env.BOT_TOKEN);
+
+
