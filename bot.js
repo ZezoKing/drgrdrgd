@@ -1,12 +1,14 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-client.on('ready', async() => {
-var server = "619139460092788746"; 
-var channel = "646390015563137025";
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('** سلوى اكس برو   **')
-    },305);
-}) 
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('=bc')){
+ if(!message.member.hasPermission('ADMINISTRATOR')) return;
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
 
 
 client.login(process.env.BOT_TOKEN);
