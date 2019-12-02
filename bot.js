@@ -14,5 +14,4 @@ m.sendMessage(args)
 });
 
 
-client.login("NjQzMzI4NDY4Mzg5NzI0MTcz.XeUKVA.doYi_SSgx5tumc38egyIipvylHM
-);
+client.login("NjQzMzI4NDY4Mzg5NzI0MTcz.XeUKVA.doYi_SSgx5tumc38egyIipvylHM);
