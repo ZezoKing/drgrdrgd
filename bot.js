@@ -1,17 +1,34 @@
-const Discord = require("discord.js")
-const bot = new Discord.Client({})
-let client = bot;
-
-client.on('message', message => {
-    if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('=bc')){
- if(!message.member.hasPermission('ADMINISTRATOR')) return;
-message.channel.send('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.send(args)
-})
-}
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const fs = require("fs");
+var Canvas = require('canvas');
+var jimp = require('jimp');
+const moment = require('moment');
+var prefix = "+";
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(` زيزو المبرمج  `,"http://twitch.tv/S-F")
+  console.log('')
+  console.log('')
+  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+  console.log(`[Start] ${new Date()}`);
+  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════════════════════════════]╗');
+  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log('')
+  console.log('Informations :')
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('╚[════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log(' Bot Is Online ')
+  console.log('╚[════════════]╝')
+  console.log('')
+  console.log('')
 });
 
 client.login(process.env.BOT_TOKEN);
